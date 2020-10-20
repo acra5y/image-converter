@@ -28,3 +28,32 @@ application {
     // Define the main class for the application.
     mainClass = 'imageconverter.App'
 }
+
+tasks.withType(Test) {
+  testLogging {
+    exceptionFormat "full"
+    events "started", "skipped", "passed", "failed"
+    showStandardStreams true
+  }
+}
+
+sourceSets {
+    test {
+        java {
+            srcDirs = ["src/test"]
+        }
+    }
+}
+
+test {
+    useJUnit()
+    beforeTest { descriptor ->
+        logger.lifecycle("Running test: " + descriptor)
+    }
+
+    failFast = true
+
+    onOutput { descriptor, event ->
+        logger.lifecycle("Test: " + descriptor + " produced standard out/err: " + event.message )
+    }
+}
