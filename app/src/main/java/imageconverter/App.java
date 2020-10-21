@@ -8,6 +8,11 @@ import imageconverter.model.*;
 public class App {
     public static void main(String[] args) {
         Arguments arguments = ArgumentsParser.parse(args);
-        ImageConverter.convertImage(arguments);
+        try {
+            ImageConverter.convertImage(arguments);
+        } catch (Exception e) {
+            System.out.println(e);
+            System.exit(1);
+        }
     }
 }
