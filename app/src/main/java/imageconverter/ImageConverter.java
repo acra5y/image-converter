@@ -7,19 +7,14 @@ import org.apache.batik.transcoder.image.PNGTranscoder;
 
 public class ImageConverter {
     public static void convertImage() {
-        try {
-            String svgUriImputLocation = "http://localhost:3000/public/favicon.svg";
-            TranscoderInput transcoderInput = new TranscoderInput(svgUriImputLocation);
+        String svgUriImputLocation = "http://localhost:3000/public/favicon.svg";
 
-            FileOutputStream outputStream = new FileOutputStream("./test.png");
+        try (FileOutputStream outputStream = new FileOutputStream("./test.png")) {
+            TranscoderInput transcoderInput = new TranscoderInput(svgUriImputLocation);
             TranscoderOutput transcoderOutput = new TranscoderOutput(outputStream);
 
             PNGTranscoder pngTranscoder = new PNGTranscoder();
             pngTranscoder.transcode(transcoderInput, transcoderOutput);
-
-            outputStream.flush();
-            outputStream.close();
-
         } catch (IOException | TranscoderException ex) {
             System.out.println("Exception Thrown: " + ex);
         }
