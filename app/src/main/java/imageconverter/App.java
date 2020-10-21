@@ -3,8 +3,11 @@
  */
 package imageconverter;
 
+import imageconverter.model.*;
+
 public class App {
     public static void main(String[] args) {
-        ImageConverter.convertImage();
+        Arguments arguments = ArgumentsParser.parse(args);
+        ImageConverter.convertImage(arguments);
     }
 }

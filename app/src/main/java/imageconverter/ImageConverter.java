@@ -4,13 +4,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import org.apache.batik.transcoder.*;
 import org.apache.batik.transcoder.image.PNGTranscoder;
+import imageconverter.model.*;
 
 public class ImageConverter {
-    public static void convertImage() {
-        String svgUriImputLocation = "http://localhost:3000/public/favicon.svg";
-
-        try (FileOutputStream outputStream = new FileOutputStream("./test.png")) {
-            TranscoderInput transcoderInput = new TranscoderInput(svgUriImputLocation);
+    public static void convertImage(Arguments arguments) {
+        try (FileOutputStream outputStream = new FileOutputStream(arguments.getOutputLocation().getValue())) {
+            TranscoderInput transcoderInput = new TranscoderInput(arguments.getInputLocation().getValue());
             TranscoderOutput transcoderOutput = new TranscoderOutput(outputStream);
 
             PNGTranscoder pngTranscoder = new PNGTranscoder();
