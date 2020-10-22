@@ -3,13 +3,13 @@ package imageconverter.model;
 import java.util.Objects;
 
 public abstract class AbstractArgument {
-    private final String value;
+    private final String path;
 
-    public AbstractArgument(String value) {
-        this.value = Objects.requireNonNull(value, "value must not be null");
+    public AbstractArgument(String path) {
+        this.path = Objects.requireNonNull(path, "path must not be null");
     }
 
-    public String getValue() {
-        return value;
+    public String getPath() {
+        return path;
     }
 }

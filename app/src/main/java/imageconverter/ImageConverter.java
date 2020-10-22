@@ -8,8 +8,8 @@ import imageconverter.model.*;
 
 public class ImageConverter {
     public static void convertImage(Arguments arguments) throws IOException, TranscoderException {
-        try (FileOutputStream outputStream = new FileOutputStream(arguments.getOutputLocation().getValue())) {
-            TranscoderInput transcoderInput = new TranscoderInput(arguments.getInputLocation().getValue());
+        try (FileOutputStream outputStream = new FileOutputStream(arguments.getOutputLocation().getPath())) {
+            TranscoderInput transcoderInput = new TranscoderInput(arguments.getInputLocation().getPath());
             TranscoderOutput transcoderOutput = new TranscoderOutput(outputStream);
 
             PNGTranscoder pngTranscoder = new PNGTranscoder();

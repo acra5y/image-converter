@@ -13,8 +13,8 @@ public class ArgumentsParserTest {
 
         Arguments result = ArgumentsParser.parse(args);
 
-        assertEquals("Should create Arguments with correct input location", inputLocation, result.getInputLocation().getValue());
-        assertEquals("Should create Arguments with correct output location", outputLocation, result.getOutputLocation().getValue());
+        assertEquals("Should create Arguments with correct input location", inputLocation, result.getInputLocation().getPath());
+        assertEquals("Should create Arguments with correct output location", outputLocation, result.getOutputLocation().getPath());
     }
 
     @Test(expected = IllegalArgumentException.class)

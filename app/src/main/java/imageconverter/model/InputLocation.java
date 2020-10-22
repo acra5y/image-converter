@@ -1,16 +1,16 @@
 package imageconverter.model;
 
 public class InputLocation extends AbstractArgument {
-    private InputLocation(String value) {
-        super(value);
+    private InputLocation(String path) {
+        super(path);
     }
 
-    public static InputLocation valueOf(String value) {
-        return new InputLocation(value);
+    public static InputLocation valueOf(String path) {
+        return new InputLocation(path);
     }
 
     @Override
     public String toString() {
-        return String.format("InputLocation[value=%s]", getValue());
+        return String.format("InputLocation[path=%s]", getPath());
     }
 }
