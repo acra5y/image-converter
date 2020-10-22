@@ -8,6 +8,6 @@ public class ArgumentsParser {
         if (args.length != 2) {
             throw new IllegalArgumentException("Must specify exactly two arguments: input location and output location");
         }
-        return new Arguments(new InputLocation(args[0]), new OutputLocation(args[1]));
+        return Arguments.valueOf(InputLocation.valueOf(args[0]), OutputLocation.valueOf(args[1]));
     }
 }

@@ -1,8 +1,12 @@
 package imageconverter.model;
 
 public class OutputLocation extends AbstractArgument {
-    public OutputLocation(String value) {
+    private OutputLocation(String value) {
         super(value);
+    }
+
+    public static OutputLocation valueOf(String value) {
+        return new OutputLocation(value);
     }
 
     @Override

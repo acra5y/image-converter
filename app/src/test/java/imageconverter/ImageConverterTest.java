@@ -23,9 +23,9 @@ public class ImageConverterTest {
         assumeTrue(expectedFileName + " should not exist before converting", this.getResource(expectedFileName) == null);
 
         String inputPath = resourceToConvert.getPath();
-        Arguments arguments = new Arguments(
-            new InputLocation(inputPath),
-            new OutputLocation(inputPath.replace(".svg", ".png"))
+        Arguments arguments = Arguments.valueOf(
+            InputLocation.valueOf(inputPath),
+            OutputLocation.valueOf(inputPath.replace(".svg", ".png"))
         );
 
         ImageConverter.convertImage(arguments);
