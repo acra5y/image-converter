@@ -3,15 +3,19 @@
  */
 package imageconverter;
 
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 import imageconverter.model.*;
 
 public class App {
+    private static Logger logger = LogManager.getLogger(App.class);
+
     public static void main(String[] args) {
         Arguments arguments = ArgumentsParser.parse(args);
         try {
             ImageConverter.convertImage(arguments);
         } catch (Exception e) {
-            System.out.println(e);
+            logger.error(e);
             System.exit(1);
         }
     }
